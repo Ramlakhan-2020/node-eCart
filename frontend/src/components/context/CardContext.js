@@ -13,12 +13,12 @@ export const CartProvider =({children}) =>{
     // Connect and join user room for real-time updates
     const joinUserRoom = async () => {
       if (!socketRef.current) {
-        socketRef.current = io("https://node-ecart-2.onrender.com", {
+        socketRef.current = io("http://localhost:3003", {
           withCredentials: true,
         });
       }
       try {
-        const res = await fetch("https://node-ecart-2.onrender.com/api/auth/status", {
+        const res = await fetch("http://localhost:3003/api/auth/status", {
           credentials: "include",
         });
         const data = await res.json();
@@ -49,7 +49,7 @@ export const CartProvider =({children}) =>{
     // Fetch cart data
     const getcartCount = async() =>{
         try {
-           const cardData = await fetch("https://node-ecart-2.onrender.com/api/cart/",{
+           const cardData = await fetch("http://localhost:3003/api/cart/",{
             credentials: "include"
            });
            const data = await cardData.json();
@@ -72,7 +72,7 @@ export const CartProvider =({children}) =>{
     useEffect(() => {
       const checkAndJoin = async () => {
         try {
-          const res = await fetch("https://node-ecart-2.onrender.com/api/auth/status", {
+          const res = await fetch("http://localhost:3003/api/auth/status", {
             credentials: "include",
           });
           const data = await res.json();

@@ -6,7 +6,7 @@ const CartPage = () => {
 
   const getCartData = async () => {
     try {
-      const fetchCart = await fetch("https://node-ecart-2.onrender.com/api/cart/", {
+      const fetchCart = await fetch("http://localhost:3003/api/cart/", {
         credentials: "include",
       });
       const cartDetail = await fetchCart.json();
@@ -26,7 +26,7 @@ const CartPage = () => {
     });
     const newQuantity = updatedItems.quantity + delta;
     if (newQuantity <= 0) {
-      const res = await fetch("https://node-ecart-2.onrender.com/api/cart/itemDelete", {
+      const res = await fetch("http://localhost:3003/api/cart/itemDelete", {
         method: "DELETE",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
@@ -35,7 +35,7 @@ const CartPage = () => {
       // Do not update local state here; wait for socket event
     } else {
       try {
-        await fetch("https://node-ecart-2.onrender.com/api/cart/updateQuantity", {
+        await fetch("http://localhost:3003/api/cart/updateQuantity", {
           method: "PATCH",
           credentials: "include",
           headers: { "Content-Type": "application/json" },
@@ -50,7 +50,7 @@ const CartPage = () => {
 
   const handleRemove = async (productId) => {
     try {
-      const res = await fetch("https://node-ecart-2.onrender.com/api/cart/itemDelete", {
+      const res = await fetch("http://localhost:3003/api/cart/itemDelete", {
         method: "DELETE",
         credentials: "include",
         headers: { "Content-Type": "application/json" },

@@ -16,7 +16,7 @@ export default function Register() {
     e.preventDefault();
     setError("");
       try{
-        const response = await fetch("https://node-ecart-2.onrender.com/api/auth/register",
+        const response = await fetch("http://localhost:3003/api/auth/register",
            {
             method: "POST",
             headers: {

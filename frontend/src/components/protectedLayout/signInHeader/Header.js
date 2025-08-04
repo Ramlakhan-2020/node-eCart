@@ -7,7 +7,7 @@ export default function Header() {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    const response = await fetch("https://node-ecart-2.onrender.com/api/auth/logout", {
+    const response = await fetch("http://localhost:3003/api/auth/logout", {
       method: "POST",
       credentials: "include"
     });

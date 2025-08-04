@@ -16,7 +16,7 @@ export default function AuthProvider({children}) {
 
   const authCheck = async () => {
     try {
-      const response = await fetch("https://node-ecart-2.onrender.com/api/auth/status", {
+      const response = await fetch("http://localhost:3003/api/auth/status", {
         method: "GET",
         credentials: "include",
       });
@@ -24,7 +24,7 @@ export default function AuthProvider({children}) {
         setIsAuthenticated(true);
       } else {
         const refreshToken = await fetch(
-          "https://node-ecart-2.onrender.com/api/auth/refresh-token",
+          "http://localhost:3003/api/auth/refresh-token",
           {
             method: "POST",
             credentials: "include",

@@ -17,7 +17,7 @@ export default function Login() {
   const handleSignInSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://node-ecart-2.onrender.com/api/auth/login', {
+      const response = await fetch('http://localhost:3003/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ export default function Login() {
       } else if (response.status === 401) {
         // Token expired: try refresh
         const refresh = await fetch(
-          'https://node-ecart-2.onrender.com/api/auth/refresh-token',
+          'http://localhost:3003/api/auth/refresh-token',
           {
             method: 'POST',
             credentials: 'include',

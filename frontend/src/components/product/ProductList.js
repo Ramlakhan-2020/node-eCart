@@ -7,7 +7,7 @@ export default function ProductList() {
 
   const getProducts = async() =>{
         try {
-            const response = await fetch("https://node-ecart-2.onrender.com/api/products/");
+            const response = await fetch("http://localhost:3003/api/products/");
             const data =  await response.json();
             setProducts(data);
         } catch (error) {
@@ -24,7 +24,7 @@ export default function ProductList() {
     const  { _id, quantity} = item;
     
     try {
-      const cartData = await fetch("https://node-ecart-2.onrender.com/api/cart/additem",{
+      const cartData = await fetch("http://localhost:3003/api/cart/additem",{
         method: "POST",
         headers: {
           "Content-Type": "application/json"
